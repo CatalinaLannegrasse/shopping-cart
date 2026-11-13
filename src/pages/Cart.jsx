@@ -7,13 +7,12 @@ export default function Cart({ cart, onUpdateQuantity, onRemove, onClearCart }) 
 
   const handleCheckout = () => {
     alert('Simulation de commande réussie ! Merci de votre visite chez L’Étoile 🥐');
-    onClearCart(); // Clears the cart upon checkout
+    onClearCart();
   };
 
   if (cart.length === 0) {
     return (
       <div className="bakery-container" style={{ textAlign: 'center', padding: '5rem 2rem' }}>
-        {/* Explicit dark color and clear heading size */}
         <h2 style={{ color: '#1a1a1a', fontSize: '2.5rem', marginBottom: '1rem' }}>
           Votre Panier est vide
         </h2>
@@ -53,10 +52,8 @@ export default function Cart({ cart, onUpdateQuantity, onRemove, onClearCart }) 
                 <button onClick={() => onUpdateQuantity(item.id, 1)} className="qty-btn">+</button>
               </div>
 
-              <div style={{ minWidth: '70px', textAlign: 'right' }}>
-                <p style={{ fontWeight: 'bold', color: '#8b5a2b', margin: 0 }}>
-                  ${(item.price * item.quantity).toFixed(2)}
-                </p>
+              <div className="cart-item-subtotal">
+                ${(item.price * item.quantity).toFixed(2)}
               </div>
 
               <button 
