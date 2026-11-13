@@ -9,24 +9,39 @@ import Cart from './pages/Cart';
 export default function App() {
   const [cart, setCart] = useState([]);
 
-  // Function to add products to cart (or increase quantity if already exists)
   const addToCart = (product, quantity) => {
     setCart((prevCart) => {
       const existingIndex = prevCart.findIndex((item) => item.id === product.id);
-      
       if (existingIndex > -1) {
-        // Item already exists, update its quantity
         const updatedCart = [...prevCart];
         updatedCart[existingIndex].quantity += quantity;
         return updatedCart;
       } else {
-        // Brand new item to cart
         return [...prevCart, { ...product, quantity }];
       }
     });
   };
 
-  // Calculate total item count for the navbar badge
+  // Increase or decrease item quantity (removes item if quantity drops below 1)
+  const updateQuantity = (productId, delta) => {
+    setCart((prevCart) => {
+      return prevCart
+        .map((item) => {
+          if (item.id === productId) {
+            const newQty = item.quantity + delta;
+            return newQty > 0 ? { ...item, quantity: newQty } : null;
+          }
+          return item;
+        })
+        .filter(Boolean); // Filter out null items
+    });
+  };
+
+  // Remove item entirely from cart
+  const removeFromCart = (productId) => {
+    setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
+  };
+
   const totalItemsCount = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (
@@ -36,7 +51,16 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop onAddToCart={addToCart} />} />
-          <Route path="/cart" element={<Cart cart={cart} />} />
+          <Route 
+            path="/cart" 
+            element={
+              <Cart 
+                cart={cart} 
+                onUpdateQuantity={updateQuantity} 
+                onRemove={removeFromCart} 
+              />
+            } 
+          />
         </Routes>
       </div>
     </BrowserRouter>
