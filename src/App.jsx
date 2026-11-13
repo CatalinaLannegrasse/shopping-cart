@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Shop from './pages/Shop';
 import Cart from './pages/Cart';
+import Footer from './components/Footer';
 
 export default function App() {
   const [cart, setCart] = useState([]);
@@ -63,6 +64,7 @@ export default function App() {
           />
         </Routes>
       </div>
+      <Footer />
     </BrowserRouter>
   );
 }
