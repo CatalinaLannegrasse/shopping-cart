@@ -1,16 +1,26 @@
-# React + Vite
+# 🥐 Boulangerie L'Étoile
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A chic, artisanal Parisian bakery e-commerce web application built with **React** and **React Router**. This project is part of **The Odin Project** curriculum, showcasing state management, client-side routing, component composition, asynchronous data fetching, and automated testing.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
 
-## React Compiler
+- **Parisian Bakery Theme:** A custom-curated selection of traditional pastries, viennoiseries, and artisanal breads (*Croissants, Macarons, Pains au Chocolat*, etc.) styled with an elegant cream and warm brown aesthetic.
+- **Client-Side Routing (`react-router-dom`):** Seamless navigation between the Home page, Menu / Shop catalog, and Interactive Cart without full page reloads.
+- **Global State Management:** Lifting state up to manage shopping cart items, quantities, and totals in real-time.
+- **Dynamic Quantity Controls:** Users can manually type quantities or use fine-tuned increment (`+`) and decrement (`-`) buttons on both product cards and the cart summary.
+- **Real-Time Badge:** Navbar cart indicator updates instantly as items are added or removed.
+- **Asynchronous Data Simulation:** Mimics backend API product fetching with loading states and robust error handling.
+- **Fully Responsive Design:** Crafted with high-contrast UI components and robust flexbox layouts that scale gracefully across desktop and mobile screens.
+- **Automated Testing:** Unit tested using **Vitest** and **React Testing Library**.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the Oxlint configuration
+## 🛠️ Built With
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+- **React 18** (Functional components, Hooks: `useState`, `useEffect`)
+- **React Router DOM** (Multi-page routing)
+- **Vite** (Next-generation frontend build tool)
+- **Vitest & React Testing Library** (Component unit and interaction testing)
+- **CSS3** (Custom responsive stylesheets with Google Fonts: *Playfair Display* & *Lato*)
