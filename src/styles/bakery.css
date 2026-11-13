@@ -1,7 +1,7 @@
 /* src/styles/bakery.css */
 body {
   margin: 0;
-  background-color: #fcfbfa; /* Warm cream background */
+  background-color: #fcfbfa;
   font-family: 'Lato', sans-serif;
   color: #2c2c2c;
   -webkit-font-smoothing: antialiased;
@@ -12,7 +12,7 @@ h1, h2, h3, .bakery-header h1, .product-title {
 }
 
 .bakery-container {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 3rem 2rem;
 }
@@ -29,12 +29,13 @@ h1, h2, h3, .bakery-header h1, .product-title {
 }
 
 .bakery-header p {
-  color: #666;
+  color: #555;
   font-style: italic;
   font-size: 1.1rem;
   font-family: 'Playfair Display', serif;
 }
 
+/* Products Grid */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -42,7 +43,7 @@ h1, h2, h3, .bakery-header h1, .product-title {
 }
 
 .product-card {
-  border: 1px solid #e8e3dc;
+  border: 1px solid #e0dbd3;
   border-radius: 12px;
   padding: 1.5rem;
   display: flex;
@@ -54,13 +55,13 @@ h1, h2, h3, .bakery-header h1, .product-title {
 }
 
 .product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(139, 90, 43, 0.08);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(139, 90, 43, 0.08);
 }
 
 .product-img {
-  width: 160px;
-  height: 160px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 1.2rem;
@@ -76,11 +77,12 @@ h1, h2, h3, .bakery-header h1, .product-title {
 
 .product-price {
   font-weight: 700;
-  color: #8b5a2b; /* Warm artisanal brown */
+  color: #8b5a2b;
   font-size: 1.1rem;
   margin-bottom: 1rem;
 }
 
+/* Quantity Controls (High contrast buttons & visible borders) */
 .quantity-controls {
   display: flex;
   align-items: center;
@@ -91,24 +93,29 @@ h1, h2, h3, .bakery-header h1, .product-title {
 .qty-btn {
   padding: 0.4rem 0.8rem;
   cursor: pointer;
-  background-color: #f7f4ef;
-  border: 1px solid #dcd4cc;
+  background-color: #f0ece4;
+  border: 1px solid #b8ab9f;
+  color: #2c2c2c;
   border-radius: 6px;
   font-weight: bold;
+  font-size: 1rem;
   transition: background-color 0.2s;
 }
 
 .qty-btn:hover {
-  background-color: #e8e0d5;
+  background-color: #dfd5c7;
 }
 
 .qty-input {
-  width: 45px;
+  width: 50px;
   text-align: center;
   padding: 0.4rem;
-  border: 1px solid #dcd4cc;
+  border: 1px solid #b8ab9f;
+  background-color: #ffffff;
+  color: #2c2c2c;
   border-radius: 6px;
   font-size: 1rem;
+  font-weight: bold;
 }
 
 .add-btn {
@@ -127,4 +134,95 @@ h1, h2, h3, .bakery-header h1, .product-title {
 
 .add-btn:hover {
   background-color: #6f4721;
+}
+
+/* Cart Layout & Clean Row Items */
+.cart-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cart-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cart-item-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  border: 1px solid #e0dbd3;
+  border-radius: 10px;
+  padding: 1.2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  gap: 1.5rem;
+}
+
+.cart-item-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.cart-item-details {
+  flex: 2;
+}
+
+.cart-item-details h3 {
+  margin: 0 0 0.3rem 0;
+  font-size: 1.15rem;
+  color: #2c2c2c;
+}
+
+.cart-item-details p {
+  margin: 0;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 0 0.5rem;
+  transition: color 0.2s;
+}
+
+.remove-btn:hover {
+  color: #a94442;
+}
+
+.cart-summary {
+  background: #fdfbf7;
+  border: 1px solid #e0dbd3;
+  border-radius: 10px;
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.cart-summary h3 {
+  margin: 0;
+  color: #2c2c2c;
+  border-bottom: 1px solid #e0dbd3;
+  padding-bottom: 0.6rem;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #2c2c2c;
+}
+
+.summary-total {
+  color: #8b5a2b;
 }

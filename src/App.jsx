@@ -2,10 +2,10 @@
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import Home from './pages/Home';
 import Shop from './pages/Shop';
 import Cart from './pages/Cart';
-import Footer from './components/Footer';
 
 export default function App() {
   const [cart, setCart] = useState([]);
@@ -15,6 +15,7 @@ export default function App() {
       const existingIndex = prevCart.findIndex((item) => item.id === product.id);
       if (existingIndex > -1) {
         const updatedCart = [...prevCart];
+        // Safely add the incoming quantity batch
         updatedCart[existingIndex].quantity += quantity;
         return updatedCart;
       } else {
@@ -23,7 +24,6 @@ export default function App() {
     });
   };
 
-  // Increase or decrease item quantity (removes item if quantity drops below 1)
   const updateQuantity = (productId, delta) => {
     setCart((prevCart) => {
       return prevCart
@@ -34,11 +34,10 @@ export default function App() {
           }
           return item;
         })
-        .filter(Boolean); // Filter out null items
+        .filter(Boolean);
     });
   };
 
-  // Remove item entirely from cart
   const removeFromCart = (productId) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
   };
@@ -47,24 +46,29 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <Navbar itemCount={totalItemsCount} />
-      <div className="content">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/shop" element={<Shop onAddToCart={addToCart} />} />
-          <Route 
-            path="/cart" 
-            element={
-              <Cart 
-                cart={cart} 
-                onUpdateQuantity={updateQuantity} 
-                onRemove={removeFromCart} 
-              />
-            } 
-          />
-        </Routes>
+      {/* App wrapper for sticky footer layout */}
+      <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        <Navbar itemCount={totalItemsCount} />
+        
+        <div style={{ flex: '1' }}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/shop" element={<Shop onAddToCart={addToCart} />} />
+            <Route 
+              path="/cart" 
+              element={
+                <Cart 
+                  cart={cart} 
+                  onUpdateQuantity={updateQuantity} 
+                  onRemove={removeFromCart} 
+                />
+              } 
+            />
+          </Routes>
+        </div>
+
+        <Footer />
       </div>
-      <Footer />
     </BrowserRouter>
   );
 }

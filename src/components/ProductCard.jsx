@@ -10,6 +10,11 @@ export default function ProductCard({ product, onAddToCart }) {
     setQuantity(isNaN(val) || val < 1 ? 1 : val);
   };
 
+  const handleAdd = () => {
+    onAddToCart(product, quantity);
+    setQuantity(1); // <--- Resets input back to 1 so clicking again doesn't multiply weirdly!
+  };
+
   return (
     <div className="product-card">
       <img src={product.image} alt={product.title} className="product-img" />
@@ -28,7 +33,7 @@ export default function ProductCard({ product, onAddToCart }) {
         <button onClick={() => setQuantity((q) => q + 1)} className="qty-btn">+</button>
       </div>
 
-      <button onClick={() => onAddToCart(product, quantity)} className="add-btn">
+      <button onClick={handleAdd} className="add-btn">
         Ajouter au Panier
       </button>
     </div>
