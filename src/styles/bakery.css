@@ -226,3 +226,118 @@ h1, h2, h3, .bakery-header h1, .product-title {
 .summary-total {
   color: #8b5a2b;
 }
+
+/* Homepage Styles */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding-bottom: 2rem;
+}
+
+.hero-section {
+  text-align: center;
+  padding: 5rem 2rem 4rem 2rem;
+  background: linear-gradient(to bottom, #f7f4ef, #fcfbfa);
+  border-bottom: 1px solid #e8e0d5;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: #555;
+  max-width: 650px;
+  margin: 0 auto 2.5rem auto;
+  font-style: italic;
+  font-family: 'Playfair Display', serif;
+}
+
+.hero-btn {
+  padding: 0.85rem 2.2rem;
+  font-size: 1.1rem;
+  background-color: #8b5a2b;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.08);
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.hero-btn:hover {
+  background-color: #6f4721;
+  transform: translateY(-2px);
+}
+
+/* Highlights Grid */
+.highlights-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.highlight-card {
+  background: white;
+  border: 1px solid #e8e0d5;
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.highlight-card h3 {
+  font-size: 1.3rem;
+  color: #2c2c2c;
+  margin-bottom: 0.8rem;
+}
+
+.highlight-card p {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Story Section */
+.story-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.story-content h2 {
+  font-size: 2.2rem;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+.story-content p {
+  color: #555;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.story-link {
+  color: #8b5a2b;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+}
+
+.story-link:hover {
+  text-decoration: underline;
+}
