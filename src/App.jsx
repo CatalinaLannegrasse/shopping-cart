@@ -13,10 +13,14 @@ export default function App() {
   const addToCart = (product, quantity) => {
     setCart((prevCart) => {
       const existingIndex = prevCart.findIndex((item) => item.id === product.id);
+      
       if (existingIndex > -1) {
-        const updatedCart = [...prevCart];
-        updatedCart[existingIndex].quantity += quantity;
-        return updatedCart;
+        // IMMUTABLE UPDATE: map over prevCart and return new objects
+        return prevCart.map((item, index) => 
+          index === existingIndex 
+            ? { ...item, quantity: item.quantity + quantity } 
+            : item
+        );
       } else {
         return [...prevCart, { ...product, quantity }];
       }
