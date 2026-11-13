@@ -2,14 +2,22 @@
 import { Link } from 'react-router-dom';
 import '../styles/bakery.css';
 
-export default function Cart({ cart, onUpdateQuantity, onRemove }) {
+export default function Cart({ cart, onUpdateQuantity, onRemove, onClearCart }) {
   const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+  const handleCheckout = () => {
+    alert('Simulation de commande réussie ! Merci de votre visite chez L’Étoile 🥐');
+    onClearCart(); // Clears the cart upon checkout
+  };
 
   if (cart.length === 0) {
     return (
       <div className="bakery-container" style={{ textAlign: 'center', padding: '5rem 2rem' }}>
-        <h2>Votre Panier est vide</h2>
-        <p style={{ fontStyle: 'italic', color: '#666', margin: '1rem 0 2rem 0' }}>
+        {/* Explicit dark color and clear heading size */}
+        <h2 style={{ color: '#1a1a1a', fontSize: '2.5rem', marginBottom: '1rem' }}>
+          Votre Panier est vide
+        </h2>
+        <p style={{ fontStyle: 'italic', color: '#555', fontSize: '1.1rem', margin: '1rem 0 2rem 0' }}>
           It looks like you haven't selected any pastries yet.
         </p>
         <Link to="/shop">
@@ -70,7 +78,7 @@ export default function Cart({ cart, onUpdateQuantity, onRemove }) {
           </div>
           <button 
             className="add-btn" 
-            onClick={() => alert('Simulation de commande réussie ! Merci de votre visite chez L’Étoile 🥐')}
+            onClick={handleCheckout}
           >
             Passer la Commande
           </button>

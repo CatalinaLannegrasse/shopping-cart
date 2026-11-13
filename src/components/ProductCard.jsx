@@ -11,8 +11,9 @@ export default function ProductCard({ product, onAddToCart }) {
   };
 
   const handleAdd = () => {
-    onAddToCart(product, quantity);
-    setQuantity(1); // <--- Resets input back to 1 so clicking again doesn't multiply weirdly!
+    // Wrap quantity in Number() to prevent string concatenation bugs
+    onAddToCart(product, Number(quantity));
+    setQuantity(1); // Reset input back to 1
   };
 
   return (

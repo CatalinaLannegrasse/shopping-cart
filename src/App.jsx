@@ -15,7 +15,6 @@ export default function App() {
       const existingIndex = prevCart.findIndex((item) => item.id === product.id);
       if (existingIndex > -1) {
         const updatedCart = [...prevCart];
-        // Safely add the incoming quantity batch
         updatedCart[existingIndex].quantity += quantity;
         return updatedCart;
       } else {
@@ -42,11 +41,14 @@ export default function App() {
     setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
   };
 
+  const clearCart = () => {
+    setCart([]);
+  };
+
   const totalItemsCount = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (
     <BrowserRouter>
-      {/* App wrapper for sticky footer layout */}
       <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <Navbar itemCount={totalItemsCount} />
         
@@ -61,6 +63,7 @@ export default function App() {
                   cart={cart} 
                   onUpdateQuantity={updateQuantity} 
                   onRemove={removeFromCart} 
+                  onClearCart={clearCart}
                 />
               } 
             />
