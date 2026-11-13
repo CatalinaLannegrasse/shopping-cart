@@ -39,7 +39,7 @@ export const BAKERY_PRODUCTS = [
     id: 6,
     title: 'Éclair au Chocolat',
     price: 5.00,
-    image: 'https://images.unsplash.com/photo-1621252171049-9f7a83d73989?auto=format&fit=crop&w=500&q=80',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYQZW3sqC9AnTYxfHcvS5Hk-aBvfTdUtdnXkuBInd-7QFePTTzsei5NzJm&s=10',
     description: 'Choux pastry filled with pastry cream and glazed with chocolate.'
   }
 ];

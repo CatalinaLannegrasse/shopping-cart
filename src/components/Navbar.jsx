@@ -1,7 +1,8 @@
+// src/components/Navbar.jsx
 import { Link } from 'react-router-dom';
-import '../App.css';
+import '../styles/bakery.css';
 
-export default function Navbar() {
+export default function Navbar({ itemCount }) {
   return (
     <nav className="navbar" style={{ 
       display: 'flex', 
@@ -16,7 +17,9 @@ export default function Navbar() {
       <div className="nav-links" style={{ display: 'flex', gap: '2rem', fontSize: '1.1rem' }}>
         <Link to="/" style={{ textDecoration: 'none', color: '#333' }}>Home</Link>
         <Link to="/shop" style={{ textDecoration: 'none', color: '#333' }}>Menu</Link>
-        <Link to="/cart" style={{ textDecoration: 'none', color: '#333', fontWeight: 'bold' }}>Panier (0)</Link>
+        <Link to="/cart" style={{ textDecoration: 'none', color: '#333', fontWeight: 'bold' }}>
+          Panier {itemCount > 0 && `(${itemCount})`}
+        </Link>
       </div>
     </nav>
   );

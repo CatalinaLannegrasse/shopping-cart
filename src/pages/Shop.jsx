@@ -1,15 +1,10 @@
-// src/pages/Shop.jsx
 import { useState } from 'react';
 import ProductCard from '../components/ProductCard';
 import { BAKERY_PRODUCTS } from '../data/bakeryProducts';
 import '../styles/bakery.css';
 
-export default function Shop() {
+export default function Shop({ onAddToCart }) {
   const [products] = useState(BAKERY_PRODUCTS);
-
-  const handleAddToCart = (product, quantity) => {
-    console.log(`Added ${quantity} of "${product.title}" to cart`);
-  };
 
   return (
     <div className="bakery-container">
@@ -20,7 +15,7 @@ export default function Shop() {
 
       <div className="products-grid">
         {products.map((product) => (
-          <ProductCard key={product.id} product={product} onAddToCart={handleAddToCart} />
+          <ProductCard key={product.id} product={product} onAddToCart={onAddToCart} />
         ))}
       </div>
     </div>
